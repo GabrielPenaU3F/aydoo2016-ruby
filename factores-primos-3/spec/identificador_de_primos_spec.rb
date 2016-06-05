@@ -13,4 +13,9 @@ describe 'IdentificadorDePrimos' do
     expect(identificador.es_primo? 7).to eq true
   end
 
+  it 'should return true when 1 es_primo?' do
+    identificador = IdentificadorDePrimos.new
+    expect(identificador.es_primo? 1).to eq true
+  end
+
 end
