@@ -1,4 +1,3 @@
-class BuscadorDeMenorDivisorSpec
   require 'rspec'
   require_relative '../model/buscador_de_menor_divisor'
 
@@ -26,5 +25,3 @@ class BuscadorDeMenorDivisorSpec
     end
 
   end
-
-end
