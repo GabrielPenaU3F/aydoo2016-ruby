@@ -11,6 +11,13 @@ class BuscadorDeMenorDivisorSpec
 
     end
 
+    it 'should return 3 when buscar_menor_divisor 9' do
+
+      buscador = BuscadorDeMenorDivisor.new
+      expect(buscador.buscar_menor_divisor 9).to eq 3
+
+    end
+
   end
 
 end
