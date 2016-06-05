@@ -11,5 +11,13 @@ describe 'ValidadorDeArgumentos' do
 
   end
 
+  it 'que devuelva true cuando es_valido? quiet' do
+
+    validador = ValidadorDeArgumentos.new
+    argumentos = ['--format=quiet']
+    expect(validador.es_valido? argumentos).to eq true
+
+  end
+
 
 end

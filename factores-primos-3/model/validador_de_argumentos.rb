@@ -1,4 +1,5 @@
 require_relative '../model/formato_pretty'
+require_relative '../model/formato_quiet'
 
 class ValidadorDeArgumentos
 
@@ -7,6 +8,7 @@ class ValidadorDeArgumentos
 
     @opciones = Hash.new
     @opciones["--format=pretty"] = FormatoPretty.class
+    @opciones["--format=quiet"] = FormatoQuiet.class
 
   end
 
