@@ -21,15 +21,15 @@ class ValidadorDeArgumentos
 
     argumentos.each do |argumento|
 
-      if !@opciones.has_key?(argumento)
+      if !@opciones.has_key?(argumento) && !argumento.starts_with("--output-file=")
 
         return false
 
       end
 
-    end
+      return true
 
-    return true
+     end
 
   end
 

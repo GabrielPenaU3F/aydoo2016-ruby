@@ -35,5 +35,13 @@ describe 'ValidadorDeArgumentos' do
 
   end
 
+  it 'que devuelva true cuando es_valido? --output-file=algo' do
+
+    validador = ValidadorDeArgumentos.new
+    argumentos = ['--output-file=algo']
+    expect(validador.es_valido? argumentos).to eq true
+
+  end
+
 
 end
