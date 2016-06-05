@@ -19,5 +19,21 @@ describe 'ValidadorDeArgumentos' do
 
   end
 
+  it 'que devuelva true cuando es_valido? sort:asc' do
+
+    validador = ValidadorDeArgumentos.new
+    argumentos = ['--sort:asc']
+    expect(validador.es_valido? argumentos).to eq true
+
+  end
+
+  it 'que devuelva true cuando es_valido? sort:des' do
+
+    validador = ValidadorDeArgumentos.new
+    argumentos = ['--sort:des']
+    expect(validador.es_valido? argumentos).to eq true
+
+  end
+
 
 end
