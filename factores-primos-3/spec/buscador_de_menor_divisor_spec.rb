@@ -18,6 +18,13 @@ class BuscadorDeMenorDivisorSpec
 
     end
 
+    it 'should return 2 when buscar_menor_divisor 10' do
+
+      buscador = BuscadorDeMenorDivisor.new
+      expect(buscador.buscar_menor_divisor 10).to eq 2
+
+    end
+
   end
 
 end
