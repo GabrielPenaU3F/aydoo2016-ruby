@@ -43,5 +43,13 @@ describe 'ValidadorDeArgumentos' do
 
   end
 
+  it 'que devuelva false cuando es_valido? alguna_cosa' do
+
+    validador = ValidadorDeArgumentos.new
+    argumentos = ['alguna_cosa']
+    expect(validador.es_valido? argumentos).to eq false
+
+  end
+
 
 end

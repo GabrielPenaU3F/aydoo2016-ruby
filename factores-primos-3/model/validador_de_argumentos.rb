@@ -15,21 +15,28 @@ class ValidadorDeArgumentos
     @opciones["--sort:des"] = OrdenDescendente.class
 
 
+
   end
 
   def es_valido? argumentos
 
     argumentos.each do |argumento|
 
-      if !@opciones.has_key?(argumento) && !argumento.starts_with("--output-file=")
+      if (argumento.start_with?("--output-file="))
+
+        return true
+
+      end
+
+      if !@opciones.has_key?(argumento)
 
         return false
 
       end
 
-      return true
+    end
 
-     end
+    return true
 
   end
 
