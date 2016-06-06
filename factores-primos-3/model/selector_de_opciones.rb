@@ -15,10 +15,15 @@ class SelectorDeOpciones
     parametros = parametros.downcase
 
     numero = parametros[0]
-    argumentos = parametros[1..parametros.size-2]
+    formato = parametros
+    argumentos = parametros[1..parametros.size-1]
 
     ordenador = OrdenadorDeArgumentos.new
     ordenador.ordenar argumentos
+
+    formato = argumentos[0]
+    salida = argumentos[size-1]
+    argumentos = argumentos[1..argumentos.size-1]
 
     factorizador = Factorizador.new
     factores_primos = factorizador.factorizar numero
@@ -26,6 +31,8 @@ class SelectorDeOpciones
     opciones = parsear_opciones(argumentos)
 
     ejecutar opciones, factores_primos
+
+    string_de_salida = realizar_formateo (formato, factores_primos)
 
   end
 
@@ -50,12 +57,18 @@ class SelectorDeOpciones
 
     opciones.each do |opcion|
 
-      opcion.ejecutar(factores)
+      factores = opcion.ejecutar(factores)
 
     end
 
   end
 
+
+  def realizar_formato (formato, factores)
+
+
+
+  end
 
 
 end
