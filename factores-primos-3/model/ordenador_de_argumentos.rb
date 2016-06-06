@@ -1,9 +1,13 @@
 require_relative '../model/detector_de_opciones'
+require_relative '../model/validador_de_argumentos'
 
 
 class OrdenadorDeArgumentos
 
   def ordenar argumentos
+
+    validador_args = ValidadorDeArgumentos.new
+    validador_args.es_valido? argumentos
 
     colocar_formato_en_primera_posicion(argumentos)
     colocar_salida_en_ultima_posicion(argumentos)
