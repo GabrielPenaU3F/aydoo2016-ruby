@@ -31,5 +31,14 @@ describe 'OrdenadorDeArgumentos' do
 
   end
 
+  it 'que ponga el output - en la ultima posicion, cuando no esta especificado' do
+
+    ordenador = OrdenadorDeArgumentos.new
+    argumentos = ['alguna_cosa', 'alguna_otra']
+    ordenador.colocar_salida_en_ultima_posicion argumentos
+    expect(argumentos).to eq ['alguna_cosa', 'alguna_otra', '--output-file=-']
+
+  end
+
 
 end
