@@ -1,7 +1,8 @@
 require_relative '../model/ordenador_de_argumentos'
 require_relative '../model/factorizador'
 require_relative '../model/diccionario_de_opciones'
-
+require_relative '../model/diccionario_de_formatos'
+require_relative '../model/generador_de_salida'
 
 
 
@@ -12,34 +13,42 @@ class SelectorDeOpciones
 
   def organizar_programa (parametros)
 
-    parametros = parametros.downcase
+    parametros.each do |parametro|
 
-    numero = parametros[0]
+      parametro.upcase
+
+    end
+
+    numero = Integer(parametros[0])
     formato = parametros
     argumentos = parametros[1..parametros.size-1]
-
-    ordenador = OrdenadorDeArgumentos.new
-    ordenador.ordenar argumentos
-
-    formato = argumentos[0]
-    salida = argumentos[size-1]
-    argumentos = argumentos[1..argumentos.size-1]
-
     factorizador = Factorizador.new
     factores_primos = factorizador.factorizar numero
 
-    opciones = parsear_opciones(argumentos)
+    ordenador = OrdenadorDeArgumentos.new
+    ordenador.ordenar argumentos
+    formato = argumentos[0]
+    salida = argumentos[argumentos.size-1]
 
-    ejecutar opciones, factores_primos
+    if argumentos.size > 2
 
-    string_de_salida = realizar_formateo (formato, factores_primos)
+      argumentos = argumentos[1..argumentos.size-1]
+      opciones = parsear_opciones(argumentos)
+      ejecutar opciones, factores_primos
+
+    end
+
+    string_de_salida = realizar_formateo(formato, factores_primos)
+
+    gen_salida = GeneradorDeSalida.new
+    gen_salida.generar_salida(salida, string_de_salida)
 
   end
 
 
   def parsear_opciones (argumentos)
 
-    diccionario DiccionarioDeOpciones.new
+    diccionario = DiccionarioDeOpciones.new
     opciones = []
 
     argumentos.each do |arg|
@@ -66,7 +75,9 @@ class SelectorDeOpciones
 
   def realizar_formateo (formato, factores)
 
-    string_salida = formato.formatear(factores)
+    diccionario_formatos = DiccionarioDeFormatos.new
+    obj_formato = diccionario_formatos.obtener_formato(formato)
+    string_salida = obj_formato.formatear(factores)
     return string_salida
 
   end

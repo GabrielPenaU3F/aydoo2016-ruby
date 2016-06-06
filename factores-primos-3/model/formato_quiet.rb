@@ -5,11 +5,10 @@ class FormatoQuiet
     string_salida = ""
     factores.each do |factor|
 
-      string_salida.concat ("/n#{factor}")
+      string_salida.concat ("#{factor}/n")
 
     end
 
-    string_salida.concat "/n"
     return string_salida
 
   end
