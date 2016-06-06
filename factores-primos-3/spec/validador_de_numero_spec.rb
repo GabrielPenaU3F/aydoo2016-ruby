@@ -11,6 +11,12 @@ describe 'ValidadorDeNumero' do
 
   end
 
-  
+  it 'devuelve false si el numero es negativo' do
+
+    validador = ValidadorDeNumero.new
+    expect(validador.es_valido? -5).to eq false
+
+  end
+
 
 end
