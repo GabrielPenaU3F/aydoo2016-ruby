@@ -11,12 +11,18 @@ describe 'ValidadorDeNumero' do
 
   end
 
-  it 'devuelve false si el numero es negativo' do
+  it 'lanza excepcion si el numero es negativo' do
 
     validador = ValidadorDeNumero.new
-    expect(validador.es_valido? -5).to eq false
+    expect{validador.es_valido? -5}.to raise_exception(NumeroNoPermitidoException)
 
   end
 
+  it 'lanza excepcion si el numero es decimal' do
+
+    validador = ValidadorDeNumero.new
+    expect{validador.es_valido? 2.9}.to raise_exception(NumeroNoPermitidoException)
+
+  end
 
 end

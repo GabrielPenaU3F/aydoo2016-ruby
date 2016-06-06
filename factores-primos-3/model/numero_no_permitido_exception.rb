@@ -1,0 +1,2 @@
+class NumeroNoPermitidoException < Exception
+end

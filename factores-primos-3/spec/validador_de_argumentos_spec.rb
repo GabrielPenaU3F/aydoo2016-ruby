@@ -52,13 +52,5 @@ describe 'ValidadorDeArgumentos' do
 
   end
 
-  it 'que lance excepcion cuando es_valido? alguna_cosa' do
-
-    validador = ValidadorDeArgumentos.new
-    argumentos = ['alguna_cosa']
-    expect{validador.es_valido? argumentos}.to raise_exception(OpcionInvalidaException)
-
-  end
-
 
 end

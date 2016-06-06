@@ -1,3 +1,6 @@
+require_relative '../model/numero_no_permitido_exception'
+
+
 class ValidadorDeNumero
 
   def es_valido? numero
@@ -8,7 +11,7 @@ class ValidadorDeNumero
 
     else
 
-      return false
+      raise NumeroNoPermitidoException, "Debe ingresar un numero entero positivo"
 
     end
 
