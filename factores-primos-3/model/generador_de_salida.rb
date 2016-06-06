@@ -8,9 +8,8 @@ class GeneradorDeSalida
 
     else
 
-      File.open(salida, "w") do |archivo|
+      File.open(salida[14..-1], 'w') do |archivo|
 
-        string_salida = string_salida.sub(14)
         archivo.write("#{string_salida}")
 
       end
