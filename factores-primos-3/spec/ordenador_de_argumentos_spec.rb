@@ -8,7 +8,7 @@ describe 'OrdenadorDeArgumentos' do
 
     ordenador = OrdenadorDeArgumentos.new
     argumentos = ['alguna_cosa', 'alguna_otra', '--format=pretty']
-    ordenador.ordenar argumentos
+    ordenador.colocar_formato_en_primera_posicion argumentos
     expect(argumentos).to eq ['--format=pretty', 'alguna_otra', 'alguna_cosa']
 
   end
@@ -17,8 +17,17 @@ describe 'OrdenadorDeArgumentos' do
 
     ordenador = OrdenadorDeArgumentos.new
     argumentos = ['alguna_cosa', 'alguna_otra']
-    ordenador.ordenar argumentos
+    ordenador.colocar_formato_en_primera_posicion argumentos
     expect(argumentos).to eq ['--format=pretty', 'alguna_otra', 'alguna_cosa']
+
+  end
+
+  it 'que ponga el output en la ultima posicion, cuando esta especificado' do
+
+    ordenador = OrdenadorDeArgumentos.new
+    argumentos = ['alguna_cosa', '--output-file=algo', 'alguna_otra']
+    ordenador.colocar_salida_en_ultima_posicion argumentos
+    expect(argumentos).to eq ['alguna_cosa', 'alguna_otra', '--output-file=algo']
 
   end
 
