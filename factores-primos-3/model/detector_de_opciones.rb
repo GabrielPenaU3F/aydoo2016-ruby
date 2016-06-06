@@ -1,4 +1,4 @@
-class OrdenadorDeArgumentos
+class DetectorDeOpciones
 
   def hay_formato_especificado? argumentos
 
