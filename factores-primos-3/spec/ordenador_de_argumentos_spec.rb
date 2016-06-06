@@ -11,6 +11,14 @@ describe 'OrdenadorDeArgumentos' do
 
   end
 
+  it 'que detecte si no hay formato especificado' do
+
+    ordenador = OrdenadorDeArgumentos.new
+    argumentos = ['hadg', 'sdgh', 'jfjy']
+    expect(ordenador.hay_formato_especificado? argumentos).to eq false
+
+  end
+
 
 
 end
