@@ -19,6 +19,14 @@ describe 'DetectorDeOpciones' do
 
   end
 
+  it 'que detecte si  hay salida especificada' do
+
+    detector = DetectorDeOpciones.new
+    argumentos = ['hadg', 'sdgh', '--output-file=']
+    expect(detector.hay_salida_especificada? argumentos).to eq true
+
+  end
+
   it 'que detecte si no hay salida especificada' do
 
     detector = DetectorDeOpciones.new
