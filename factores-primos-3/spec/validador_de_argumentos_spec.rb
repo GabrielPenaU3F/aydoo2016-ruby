@@ -1,6 +1,7 @@
 require 'rspec'
 require_relative '../model/validador_de_argumentos'
 
+
 describe 'ValidadorDeArgumentos' do
 
   it 'que devuelva true cuando es_valido? pretty' do
@@ -43,11 +44,11 @@ describe 'ValidadorDeArgumentos' do
 
   end
 
-  it 'que devuelva false cuando es_valido? alguna_cosa' do
+  it 'que lance excepcion cuando es_valido? alguna_cosa' do
 
     validador = ValidadorDeArgumentos.new
     argumentos = ['alguna_cosa']
-    expect(validador.es_valido? argumentos).to eq false
+    expect{validador.es_valido? argumentos}.to raise_exception(OpcionInvalidaException)
 
   end
 

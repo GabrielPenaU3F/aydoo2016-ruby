@@ -1,0 +1,2 @@
+class OpcionInvalidaException < Exception
+end

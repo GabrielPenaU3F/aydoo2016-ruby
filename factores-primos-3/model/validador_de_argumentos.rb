@@ -2,6 +2,7 @@ require_relative '../model/formato_pretty'
 require_relative '../model/formato_quiet'
 require_relative '../model/orden_ascendente'
 require_relative '../model/orden_descendente'
+require_relative '../model/opcion_invalida_exception'
 
 class ValidadorDeArgumentos
 
@@ -20,6 +21,15 @@ class ValidadorDeArgumentos
 
   def es_valido? argumentos
 
+    return verificar_que_no_haya_parametros_no_permitidos(argumentos)
+
+  end
+
+
+
+
+  def verificar_que_no_haya_parametros_no_permitidos(argumentos)
+
     argumentos.each do |argumento|
 
       if (argumento.start_with?("--output-file="))
@@ -30,7 +40,7 @@ class ValidadorDeArgumentos
 
       if !@opciones.has_key?(argumento)
 
-        return false
+        raise OpcionInvalidaException, "Se ingreso una opcion invalida"
 
       end
 
@@ -39,5 +49,6 @@ class ValidadorDeArgumentos
     return true
 
   end
+
 
 end
