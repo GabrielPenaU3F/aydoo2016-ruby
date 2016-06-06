@@ -64,9 +64,10 @@ class SelectorDeOpciones
   end
 
 
-  def realizar_formato (formato, factores)
+  def realizar_formateo (formato, factores)
 
-
+    string_salida = formato.formatear(factores)
+    return string_salida
 
   end
 
